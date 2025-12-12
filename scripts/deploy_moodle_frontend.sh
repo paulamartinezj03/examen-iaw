@@ -10,18 +10,18 @@ source .env
 a2enmod rewrite
 
 #Eliminamos los archivos de instalaciones previas de Moodle de /var/www/html/moodle
-rm -rf /tmp/v4.3.1.zip
+rm -rf /tmp/v4.5.0.zip
 rm -rf /var/www/html/*
 
 # Descargamos el codigo fuente de Moodle
-wget https://github.com/moodle/moodle/archive/refs/tags/v4.3.1.zip -P /tmp
+wget https://github.com/moodle/moodle/archive/refs/tags/v4.5.0.zip -P /tmp
 
 #Descomprimimos el codigo fuente de Moodle en la carpeta /var/www/html/moodle
 apt install unzip -y
-unzip -o /tmp/v4.3.1.zip -d /tmp
+unzip /tmp/v4.5.0.zip -d /tmp
 
 # Movemos el contenido de la carpeta descomprimida /var/www/html
-mv /tmp/moodle-4.3.1/* /var/www/html
+mv /tmp/moodle-4.5.0/* /var/www/html
 
 # Cambiamos el propietario de la carpeta para que sea propiedad del servidor y dar acceso al dueño de lectura, escritura y ejecución.
 chown -R www-data:www-data /var/www/html
@@ -57,7 +57,7 @@ sudo -u www-data php /var/www/html/admin/cli/install.php \
     --non-interactive \
     --agree-license
 
-# Configurar unos valores 
+# Configurar unos valores
 sed -i "/\$CFG->admin/a \$CFG->reverseproxy=1;\n\$CFG->sslproxy=1;" /var/www/html/config.php
 
 # Reiniciamos apache para que todos los cambios que hemos hecho durante la configuracion se guarden
