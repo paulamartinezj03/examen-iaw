@@ -18,7 +18,7 @@ wget https://github.com/moodle/moodle/archive/refs/tags/v4.3.1.zip -P /tmp
 
 #Descomprimimos el codigo fuente de Moodle en la carpeta /var/www/html/moodle
 apt install unzip -y
-unzip /tmp/v4.3.1.zip -d /tmp
+unzip -o /tmp/v4.3.1.zip -d /tmp
 
 # Movemos el contenido de la carpeta descomprimida /var/www/html
 mv /tmp/moodle-4.3.1/* /var/www/html
