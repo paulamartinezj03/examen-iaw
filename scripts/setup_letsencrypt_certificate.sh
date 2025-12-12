@@ -17,7 +17,6 @@ apt remove certbot -y
 snap install --classic certbot
 
 # Creamos un alias para el comando cerbot
-ln -fs /snap/bin/cerbot /usr/bin/cerbot
-
+ln -fs /snap/bin/certbot /usr/bin/certbot
 # Solicitamos un certificado a Let´s Encrypt
 certbot --nginx -m $LE_EMAIL --agree-tos --no-eff-email -d $LE_DOMAIN --non-interactive
