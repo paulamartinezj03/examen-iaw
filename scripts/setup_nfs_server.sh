@@ -17,7 +17,7 @@ sudo apt install nfs-kernel-server -y
 
 #Creamos el direcorio que vamos a compartir
 mkdir -p /var/www/html
-
+mkdir -p /var/moodledata
 #Cambiamos el propietario y el grupo del directorio /var/www/html
 sudo chown nobody:nogroup /var/www/html
 sudo chown nobody:nogroup /var/moodledata
