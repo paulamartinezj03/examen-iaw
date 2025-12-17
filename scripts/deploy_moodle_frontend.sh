@@ -35,8 +35,8 @@ chown -R www-data:www-data /var/moodledata
 chmod -R 777 /var/moodledata
 
 #Cambiamos las variables del archivo de php.ini tanto en la carpeta /apache2 como en /cli
-sed -i "s/;max_input_vars = 1000/max_input_vars = 5000/" /etc/php/8.*/apache2/php.ini
-sed -i "s/;max_input_vars = 1000/max_input_vars = 5000/" /etc/php/8.*/cli/php.ini
+sed -i "s/;max_input_vars = 1000/max_input_vars = 5000/" /etc/php/*/apache2/php.ini
+sed -i "s/;max_input_vars = 1000/max_input_vars = 5000/" /etc/php/*/cli/php.ini
 
 # Hacemos la configuracion automatica de la instalacion de Moodle
 sudo -u www-data php /var/www/html/admin/cli/install.php \
